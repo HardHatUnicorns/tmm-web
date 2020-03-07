@@ -3,6 +3,7 @@ export class User {
 	login: string;
 	email: string;
 	enabled: boolean;
+	plainPassword: string;
 	roles: [
 		{
 			id: number;
