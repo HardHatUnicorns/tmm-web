@@ -20,8 +20,4 @@ export class LoginComponent implements OnInit {
 		});
 	}
 
-	toggleForm(): void {
-		this.toggleRegister.emit();
-	}
-
 }

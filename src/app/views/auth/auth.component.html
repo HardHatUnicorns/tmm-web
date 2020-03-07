@@ -1,14 +1,18 @@
 <div>
-	<div class="form-box card shadow">
-		<div class="card-body">
-			<app-auth-login
-				*ngIf="!register"
-				(toggleRegister)="toggleRegister()"
-			></app-auth-login>
-			<app-auth-register
-				*ngIf="register"
-				(toggleRegister)="toggleRegister()"
-			></app-auth-register>
+	<div class="row pt-5">
+		<div class="col-3 ml-auto">
+			<div class="form-box card shadow">
+				<div class="card-body">
+					<app-auth-login></app-auth-login>
+				</div>
+			</div>
+		</div>
+		<div class="col-3 mr-auto">
+			<div class="form-box card shadow">
+				<div class="card-body">
+					<app-auth-register></app-auth-register>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

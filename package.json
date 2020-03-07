@@ -19,6 +19,7 @@
 		"@angular/platform-browser": "~9.0.3",
 		"@angular/platform-browser-dynamic": "~9.0.3",
 		"@angular/router": "~9.0.3",
+		"@fortawesome/fontawesome-free": "^5.12.1",
 		"bootstrap": "^4.4.1",
 		"boxicons": "^2.0.5",
 		"jquery": "^3.4.1",

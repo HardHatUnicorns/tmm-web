@@ -13,11 +13,7 @@ export class RegisterComponent implements OnInit {
 	@Output() toggleRegister: EventEmitter<any> = new EventEmitter();
 	registerForm: FormGroup;
 
-	loading: boolean = false;
-	success: boolean;
-	successMessage: string;
-	error: boolean;
-	errorMessage: string;
+	inProgress: boolean = false;
 
 	constructor(private fb: FormBuilder, private authService: AuthService) { }
 
@@ -30,28 +26,22 @@ export class RegisterComponent implements OnInit {
 	}
 
 	register(): void {
-		if (!this.loading) {
-			this.loading = true;
-			this.success = false;
-			this.error = false;
+		if (!this.inProgress) {
+			this.inProgress = true;
 			this.authService.registerUser(this.registerForm.value)
 				.subscribe(
 					res => {
-						this.loading = false;
-						this.success = true;
-						this.successMessage = 'Successfully registered';
+						// Success
+						this.inProgress = false;
+						console.log(res);
 					},
 					error => {
-						this.loading = false;
-						this.error = true;
-						this.errorMessage = error.error.message;
+						// Error
+						this.inProgress = false;
+						console.log(error);
 					}
 				);
 		}
-	}
-
-	toggleForm(): void {
-		this.toggleRegister.emit();
 	}
 
 }

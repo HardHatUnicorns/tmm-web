@@ -1,5 +1,8 @@
 <form [formGroup]="loginForm">
-	<h2>Login</h2>
+	<h2>
+		<i class="far fa-user"></i>
+		Login
+	</h2>
 	<hr>
 	<div class="form-group">
 		<label for="login">Login</label>
@@ -19,13 +22,7 @@
 			formControlName="password"
 		>
 	</div>
-	<button class="btn btn-success mr-2">
+	<button class="btn btn-success mt-2">
 		Login
-	</button>
-	<button
-		class="btn btn-info"
-		(click)="toggleForm()"
-	>
-		Create account
 	</button>
 </form>
