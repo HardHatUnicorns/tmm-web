@@ -3,3 +3,14 @@
 
 // Boxicons
 @import "../node_modules/boxicons/css/boxicons.min.css";
+
+// Fonts
+@font-face {
+	font-family: "Lato";
+	src: url("./assets/fonts/Lato/Lato-Regular.ttf");
+}
+
+// Global SCSS
+* {
+	font-family: "Lato";
+}

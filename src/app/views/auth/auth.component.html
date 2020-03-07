@@ -1,0 +1,14 @@
+<div>
+	<div class="form-box card shadow">
+		<div class="card-body">
+			<app-auth-login
+				*ngIf="!register"
+				(toggleRegister)="toggleRegister()"
+			></app-auth-login>
+			<app-auth-register
+				*ngIf="register"
+				(toggleRegister)="toggleRegister()"
+			></app-auth-register>
+		</div>
+	</div>
+</div>
