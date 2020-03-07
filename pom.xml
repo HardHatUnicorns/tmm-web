@@ -6,6 +6,8 @@
   <groupId>pl.aogiri.tmm</groupId>
   <artifactId>tmm-web</artifactId>
   <version>0.1</version>
+  <name>Tournament Management Manager</name>
+  <description>A system to manage game tournaments.</description>
   <packaging>war</packaging>
 
   <build>
