@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { error } from '@angular/compiler/src/util';
+import { User } from 'src/app/models/User';
 
 @Component({
 	selector: 'app-auth-register',
@@ -10,7 +11,7 @@ import { error } from '@angular/compiler/src/util';
 })
 export class RegisterComponent implements OnInit {
 
-	@Output() toggleRegister: EventEmitter<any> = new EventEmitter();
+	@Output() message: EventEmitter<string> = new EventEmitter();
 	registerForm: FormGroup;
 
 	inProgress: boolean = false;
@@ -33,12 +34,12 @@ export class RegisterComponent implements OnInit {
 					res => {
 						// Success
 						this.inProgress = false;
-						console.log(res);
+						this.message.emit(JSON.stringify(res));
 					},
 					error => {
 						// Error
 						this.inProgress = false;
-						console.log(error);
+						this.message.emit(JSON.stringify(error.error));
 					}
 				);
 		}

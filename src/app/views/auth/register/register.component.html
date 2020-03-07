@@ -1,19 +1,5 @@
 <form [formGroup]="registerForm">
 
-	<!-- Success alert -->
-	<app-alert
-		alertType="success"
-		[message]="successMessage"
-		*ngIf="success"
-	></app-alert>
-
-	<!-- Error alert -->
-	<app-alert
-		alertType="danger"
-		[message]="errorMessage"
-		*ngIf="error"
-	></app-alert>
-
 	<!-- Register form -->
 	<h2>
 		<i class="fas fa-user-plus"></i>

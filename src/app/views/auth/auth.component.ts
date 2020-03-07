@@ -7,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-	register: boolean = false;
+	message: string;
 
 	constructor() { }
 
 	ngOnInit(): void {
 	}
 
-	toggleRegister(): void {
-		this.register = !this.register;
+	setMessage(message: string): void {
+		this.message = message;
 	}
-
 }

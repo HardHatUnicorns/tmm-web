@@ -8,7 +8,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-	@Output() toggleRegister: EventEmitter<any> = new EventEmitter();
 	loginForm: FormGroup;
 
 	constructor(private fb: FormBuilder) { }

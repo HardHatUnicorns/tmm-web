@@ -10,7 +10,20 @@
 		<div class="col-3 mr-auto">
 			<div class="form-box card shadow">
 				<div class="card-body">
-					<app-auth-register></app-auth-register>
+					<app-auth-register (message)="setMessage($event)"></app-auth-register>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div
+		class="row mt-5"
+		*ngIf="message"
+	>
+		<div class="col-6 mx-auto">
+			<div class="card shadow">
+				<div class="card-body">
+					<span class="badge badge-info">Response</span>
+					<p class="mb-0">{{ message  }}</p>
 				</div>
 			</div>
 		</div>
