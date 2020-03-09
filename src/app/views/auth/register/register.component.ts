@@ -1,8 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { error } from '@angular/compiler/src/util';
-import { User } from 'src/app/models/User';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
 	selector: 'app-auth-register',

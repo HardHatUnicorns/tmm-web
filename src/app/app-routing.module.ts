@@ -4,11 +4,18 @@ import { HomePageComponent } from './views/home-page/home-page.component';
 import { UserComponent } from './views/user/user.component';
 import { AuthComponent } from './views/auth/auth.component';
 import { AboutComponent } from './views/about/about.component';
+import { LoginComponent } from './views/auth/login/login.component';
+import { RegisterComponent } from './views/auth/register/register.component';
 
 
 const routes: Routes = [
 	{ path: '', component: HomePageComponent },
-	{ path: 'auth', component: AuthComponent },
+	{
+		path: 'auth', component: AuthComponent, children: [
+			{ path: 'login', component: LoginComponent },
+			{ path: 'register', component: RegisterComponent }
+		]
+	},
 	{
 		path: 'user', component: UserComponent, children: []
 	},
