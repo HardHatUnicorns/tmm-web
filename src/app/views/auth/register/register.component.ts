@@ -21,7 +21,8 @@ export class RegisterComponent implements OnInit {
 		this.registerForm = this.fb.group({
 			email: '',
 			login: '',
-			plainPassword: ''
+			plainPassword: '',
+			plainPasswordConfirm: ''
 		})
 	}
 

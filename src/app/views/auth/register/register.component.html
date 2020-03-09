@@ -3,10 +3,12 @@
 		<label for="email">E-mail</label>
 		<input
 			id="email"
-			type="text"
+			type="email"
 			class="form-control"
-			formControlName="email"
 			placeholder="yourmail@example.com"
+			required
+			pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+			formControlName="email"
 		>
 	</div>
 	<div class="form-group">
@@ -15,9 +17,13 @@
 			id="login"
 			type="text"
 			class="form-control"
-			formControlName="login"
 			placeholder="yourlogin"
+			required
+			minlength="6"
+			maxlength="32"
+			formControlName="login"
 		>
+		<small>6-32 characters</small>
 	</div>
 	<div class="form-group">
 		<label for="password">Password</label>
@@ -25,15 +31,23 @@
 			id="password"
 			type="password"
 			class="form-control"
+			required
+			minlength="8"
+			maxlength="32"
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 			formControlName="plainPassword"
 		>
+		<small>8-32 characters, must contain one big letter and one number</small>
 	</div>
 	<div class="form-group">
 		<label for="password-confirm">Confirm password</label>
 		<input
 			id="password-confirm"
 			type="password"
+			required
+			pattern="{{ registerForm.value.plainPassword }}"
 			class="form-control"
+			formControlName="plainPasswordConfirm"
 		>
 	</div>
 	<div class="mt-4">

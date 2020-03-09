@@ -9,10 +9,10 @@ $light: #eeeeeee4;
 $accent: #d65a31;
 
 $primary: #d65a31;
-$success: #0e9989;
+$success: #31d65a;
 $danger: #bb1c03;
 $warning: #edaf13;
-$info: #b8e6e0;
+$info: #31add6;
 
 // <a> color
 $link-color: #dee4e7;
@@ -40,9 +40,9 @@ $form-group-margin-bottom: 1.25rem;
 		cursor: text;
 		color: rgba(255, 255, 255, 0.5);
 		&[has-content] {
-			top: -0.6rem;
+			top: -0.55rem;
 			font-size: 0.7rem;
-			color: #eeeeeee0;
+			color: #ffffff42;
 		}
 		&[focus] {
 			color: $primary !important;

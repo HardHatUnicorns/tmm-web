@@ -6,6 +6,8 @@
 			type="text"
 			class="form-control"
 			required
+			minlength="6"
+			maxlength="32"
 			formControlName="login"
 		>
 	</div>
@@ -16,6 +18,9 @@
 			type="password"
 			class="form-control"
 			required
+			minlength="8"
+			maxlength="32"
+			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 			formControlName="password"
 		>
 		<a
