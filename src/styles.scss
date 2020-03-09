@@ -111,6 +111,10 @@ h6 {
 		font-family: "Bebas Neue";
 	}
 }
+hr {
+	background-color: $light;
+	height: 2px;
+}
 
 // BROWSER AUTOCOMPLETE
 @-webkit-keyframes autofill {

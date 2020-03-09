@@ -10,9 +10,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 })
 export class RegisterComponent implements OnInit {
 
-	@Output() message: EventEmitter<string> = new EventEmitter();
 	registerForm: FormGroup;
-
 	inProgress: boolean = false;
 
 	constructor(private fb: FormBuilder, private authService: AuthService) { }
@@ -34,12 +32,10 @@ export class RegisterComponent implements OnInit {
 					res => {
 						// Success
 						this.inProgress = false;
-						this.message.emit(JSON.stringify(res));
 					},
 					error => {
 						// Error
 						this.inProgress = false;
-						this.message.emit(JSON.stringify(error.error));
 					}
 				);
 		}

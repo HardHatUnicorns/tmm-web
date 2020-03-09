@@ -6,6 +6,7 @@ import { AuthComponent } from './views/auth/auth.component';
 import { AboutComponent } from './views/about/about.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { UserDashboardComponent } from './views/user/user-dashboard/user-dashboard.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,9 @@ const routes: Routes = [
 		]
 	},
 	{
-		path: 'user', component: UserComponent, children: []
+		path: 'user', component: UserComponent, children: [
+			{ path: 'dashboard', component: UserDashboardComponent }
+		]
 	},
 	{ path: 'about', component: AboutComponent }
 ];

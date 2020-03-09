@@ -10,9 +10,9 @@ import { HomePageComponent } from './views/home-page/home-page.component';
 import { UserComponent } from './views/user/user.component';
 import { AuthComponent } from './views/auth/auth.component';
 import { AboutComponent } from './views/about/about.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
+import { UserDashboardComponent } from './views/user/user-dashboard/user-dashboard.component';
 
 @NgModule({
 	declarations: [
@@ -21,9 +21,9 @@ import { RegisterComponent } from './views/auth/register/register.component';
 		UserComponent,
 		AuthComponent,
 		AboutComponent,
-		NavbarComponent,
 		LoginComponent,
-		RegisterComponent
+		RegisterComponent,
+		UserDashboardComponent
 	],
 	imports: [
 		BrowserModule,
