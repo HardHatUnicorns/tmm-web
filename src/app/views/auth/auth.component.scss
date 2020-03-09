@@ -7,6 +7,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: start;
+	@media screen and (max-width: 992px) {
+		background-position: center;
+	}
 
 	.form-box {
 		position: relative;
@@ -17,15 +20,31 @@
 		justify-content: center;
 		padding: 6rem;
 		margin-left: 10rem;
+		@media screen and (max-width: 992px) {
+			backdrop-filter: blur(20px) brightness(15%);
+			margin-left: 0rem;
+			padding: 3rem 1.5rem;
+			width: 100%;
+		}
+		@media screen and (max-width: 576px) {
+			padding: 4rem 1.5rem;
+		}
 
 		.back-button {
 			position: absolute;
 			top: 6rem;
 			left: 6rem;
 			font-size: 0.6rem;
+			@media screen and (max-width: 992px) {
+				top: 1rem;
+				left: 1.5rem;
+			}
 
 			.bx {
 				font-size: 3rem;
+				@media screen and (max-width: 992px) {
+					font-size: 2.2rem;
+				}
 			}
 		}
 
@@ -36,6 +55,9 @@
 		.form {
 			margin-top: 1.5rem;
 			height: 5rem;
+			@media screen and (max-width: 992px) {
+				height: unset;
+			}
 		}
 	}
 
@@ -59,5 +81,11 @@
 		bottom: 1rem;
 		right: 1rem;
 		color: rgba(255, 255, 255, 0.4);
+		@media screen and (max-width: 1200px) {
+			font-size: 0.7rem;
+		}
+		@media screen and (max-width: 992px) {
+			display: none;
+		}
 	}
 }
