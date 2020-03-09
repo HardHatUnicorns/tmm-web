@@ -1,0 +1,63 @@
+#auth {
+	width: 100%;
+	min-height: 100vh;
+	background-image: url("../../../assets/fredrick-tendong-HVYepJYeHdQ-unsplash.jpg");
+	background-position: 11rem top;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: start;
+
+	.form-box {
+		position: relative;
+		min-height: 100vh;
+		backdrop-filter: blur(20px) brightness(25%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 6rem;
+		margin-left: 10rem;
+
+		.back-button {
+			position: absolute;
+			top: 6rem;
+			left: 6rem;
+			font-size: 0.6rem;
+
+			.bx {
+				font-size: 3rem;
+			}
+		}
+
+		h1 {
+			line-height: 4rem;
+		}
+
+		.form {
+			margin-top: 1.5rem;
+			height: 5rem;
+		}
+	}
+
+	.right-border {
+		position: relative;
+		display: flex;
+		min-height: 100vh;
+		&.primary {
+			width: 0.5rem;
+			background-color: #d65a31;
+		}
+		&.secondary {
+			width: 1rem;
+			backdrop-filter: blur(20px) brightness(25%);
+		}
+	}
+
+	#photo-by {
+		margin: 0;
+		position: absolute;
+		bottom: 1rem;
+		right: 1rem;
+		color: rgba(255, 255, 255, 0.4);
+	}
+}

@@ -1,24 +1,32 @@
-<div>
-	<div class="row pt-5">
-		<div class="col-3 mx-auto">
-			<div class="form-box card shadow">
-				<div class="card-body">
-					<router-outlet></router-outlet>
-				</div>
+<div id="auth">
+	<div class="form-box">
+		<a
+			class="back-button btn p-0"
+			data-toggle="tooltip"
+			data-placement="bottom"
+			title="Back to homepage"
+			routerLink="/"
+		>
+			<i class="bx bx-arrow-back"></i><br>
+		</a>
+		<div>
+			<h2 class="m-0 text-muted">
+				TMM Semi-pro League
+			</h2>
+			<h1 class="display-3 mb-0">
+				LIFE IS A <span class="text-primary">COMPETITION</span>
+			</h1>
+			<p>
+				Join the fastest growing amature e-sport league
+			</p>
+			<div class="form">
+				<router-outlet></router-outlet>
 			</div>
 		</div>
 	</div>
-	<div
-		class="row mt-5"
-		*ngIf="message"
-	>
-		<div class="col-6 mx-auto">
-			<div class="card shadow">
-				<div class="card-body">
-					<span class="badge badge-info">Response</span>
-					<p class="mb-0">{{ message  }}</p>
-				</div>
-			</div>
-		</div>
-	</div>
+	<div class="right-border primary"></div>
+	<div class="right-border secondary"></div>
+	<p id="photo-by">
+		Photo by Fredrick Tendong
+	</p>
 </div>

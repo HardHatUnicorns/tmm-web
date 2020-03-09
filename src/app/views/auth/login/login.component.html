@@ -1,15 +1,11 @@
 <form [formGroup]="loginForm">
-	<h2>
-		<i class="far fa-user"></i>
-		Login
-	</h2>
-	<hr>
 	<div class="form-group">
 		<label for="login">Login</label>
 		<input
 			id="login"
 			type="text"
 			class="form-control"
+			required
 			formControlName="login"
 		>
 	</div>
@@ -19,15 +15,20 @@
 			id="password"
 			type="password"
 			class="form-control"
+			required
 			formControlName="password"
 		>
+		<a
+			class="text-muted"
+			routerLink="/auth/forgottenpassword"
+		>I don't remember my password</a>
 	</div>
-	<div class="mt-2">
-		<button class="btn btn-success">
+	<div class="mt-4">
+		<button class="btn btn-primary btn-lg px-5">
 			Login
 		</button>
 	</div>
 	<div class="mt-2">
-		<a routerLink="/auth/register">You don't have an account?</a>
+		<a routerLink="/auth/register">Register now</a>
 	</div>
 </form>
