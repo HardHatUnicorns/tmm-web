@@ -7,14 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthComponent implements OnInit {
 
-	message: string;
-
 	constructor() { }
 
 	ngOnInit(): void {
-	}
-
-	setMessage(message: string): void {
-		this.message = message;
 	}
 }
