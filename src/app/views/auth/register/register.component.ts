@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 	registerForm: FormGroup;
 	submited: boolean = false;
 
-	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService) { }
+	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService, private el: ElementRef) { }
 
 	ngOnInit(): void {
 		this.registerForm = this.fb.group({
@@ -52,18 +52,38 @@ export class RegisterComponent implements OnInit {
 
 	register(): void {
 		if (!this.submited) {
-			this.submited = true;
-			this.authService.registerUser(this.registerForm.value)
-				.subscribe(
-					res => {
-						this.alertService.emitChange({ visible: true, type: 'success', message: 'Registered' });
-						this.submited = false;
-					},
-					error => {
-						this.alertService.emitChange({ visible: true, type: 'danger', message: 'ERROR' });
-						this.submited = false;
-					}
-				);
+			if (this.registerForm.valid) {
+				this.submited = true;
+				this.authService.registerUser(this.registerForm.value)
+					.subscribe(
+						res => {
+							this.alertService.emitChange({
+								visible: true,
+								type: 'success',
+								strong: 'Successfully registered!',
+								message: 'Check e-mail inbox to activate your account'
+							});
+							this.submited = false;
+						},
+						error => {
+							this.alertService.emitChange({
+								visible: true,
+								type: 'danger',
+								message: error.error.errors[0].message
+							});
+							this.submited = false;
+						}
+					);
+			} else {
+				this.registerForm.markAllAsTouched();
+				const invalidInputs: HTMLElement[] = this.el.nativeElement.querySelectorAll('input.ng-invalid');
+				invalidInputs.forEach((element, index) => {
+					setTimeout(() => {
+						element.focus();
+						element.blur();
+					}, index * 1);
+				});
+			}
 		}
 	}
 

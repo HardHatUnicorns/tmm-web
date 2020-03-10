@@ -4,9 +4,15 @@
 		role="alert"
 		*ngIf="alert"
 	>
+		<strong class="message d-block">
+			{{ alert.strong }}
+		</strong>
 		<span class="message">
 			{{ alert.message }}
 		</span>
+		<small class="d-block">
+			{{ alert.small }}
+		</small>
 		<button
 			type="button"
 			class="close"
