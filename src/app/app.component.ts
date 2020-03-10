@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 // Scripts 
 import { Scripts } from '../scripts';
+import { AlertService } from './services/alert.service';
 
 // Ignore JQuery
 declare var $: any;
@@ -14,7 +15,7 @@ declare var $: any;
 	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	constructor(private router: Router, private http: HttpClient) {
+	constructor(private router: Router, private http: HttpClient, private alertService: AlertService) {
 		// Call every time on loading new route
 		router.events.subscribe(e => {
 			// Import scripts
@@ -27,6 +28,9 @@ export class AppComponent {
 				$('[data-toggle="tooltip"]').tooltip();
 				sc.loadInputs();
 			});
+
+			// Hidde all alert boxes
+			alertService.clearAlerts();
 		});
 	}
 }
