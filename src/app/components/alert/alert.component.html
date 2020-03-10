@@ -1,0 +1,18 @@
+<div>
+	<div
+		[className]="'alert alert-dismissible fade show shadow mb-3 alert-' + alert.type"
+		role="alert"
+		*ngIf="alert"
+	>
+		<span class="message">
+			{{ alert.message }}
+		</span>
+		<button
+			type="button"
+			class="close"
+			(click)="close()"
+		>
+			<i class="bx bx-x"></i>
+		</button>
+	</div>
+</div>
