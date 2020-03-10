@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { AuthComponent } from './auth.component';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { AlertComponent } from 'src/app/components/alert/alert.component';
 
 describe('AuthComponent', () => {
 	let component: AuthComponent;
@@ -14,7 +15,10 @@ describe('AuthComponent', () => {
 				RouterTestingModule,
 				RouterModule
 			],
-			declarations: [AuthComponent]
+			declarations: [
+				AuthComponent,
+				AlertComponent
+			]
 		})
 			.compileComponents();
 	}));

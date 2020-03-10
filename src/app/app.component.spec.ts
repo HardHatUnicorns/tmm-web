@@ -15,6 +15,7 @@ import { AboutComponent } from './views/about/about.component';
 import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { UserDashboardComponent } from './views/user/user-dashboard/user-dashboard.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 describe('AppComponent', () => {
 
@@ -37,7 +38,8 @@ describe('AppComponent', () => {
 				AboutComponent,
 				LoginComponent,
 				RegisterComponent,
-				UserDashboardComponent
+				UserDashboardComponent,
+				AlertComponent
 			],
 		}).compileComponents();
 	}));
