@@ -8,6 +8,13 @@
   <version>0.1</version>
   <packaging>war</packaging>
 
+  <properties>
+    <wfHost></wfHost>
+    <wfPort></wfPort>
+    <wfUsername></wfUsername>
+    <wfPassword></wfPassword>
+  </properties>
+
   <build>
     <finalName>tmm-web</finalName>
     <plugins>
@@ -57,6 +64,12 @@
         <groupId>org.wildfly.plugins</groupId>
         <artifactId>wildfly-maven-plugin</artifactId>
         <version>1.0.1.Final</version>
+        <configuration>
+          <hostname>${wfHost}</hostname>
+          <port>${wfPort}</port>
+          <username>${wfUsername}</username>
+          <password>${wfPassword}</password>
+        </configuration>
       </plugin>
     </plugins>
   </build>
