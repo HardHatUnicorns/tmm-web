@@ -1,0 +1,23 @@
+name: On push master deploy to Wildfly
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.16.1'
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run buildProduction
+      - name: Test
+        run: npm test -- --watch=false --browsers=ChromeHeadless
+      - name: Deploy to Wildfly
+        run: mvn wildfly:deploy "-DwfHost=${{ secrets.wildfly_hostname }}" "-DwfPort=${{ secrets.wildfly_port }}" "-DwfUsername=${{ secrets.wildfly_username }}" "-DwfPassword=${{ secrets.wildfly_password }}"
