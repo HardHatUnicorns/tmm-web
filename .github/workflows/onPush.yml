@@ -16,10 +16,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.16.1'
-      - uses: actions/angular-github-actions
       - name: Install
         run: npm install
       - name: Build
         run: npm run buildProduction
       - name: Test
-        run: ng test --watch=false --browsers=ChromeHeadless
+        run: ng test -- --watch=false --browsers=ChromeHeadless
