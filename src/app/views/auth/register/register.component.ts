@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ElementRef } from '@angular/co
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-auth-register',
@@ -13,7 +14,7 @@ export class RegisterComponent implements OnInit {
 	registerForm: FormGroup;
 	submited: boolean = false;
 
-	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService, private el: ElementRef) { }
+	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService, private el: ElementRef, private router: Router) { }
 
 	ngOnInit(): void {
 		this.registerForm = this.fb.group({
@@ -61,9 +62,11 @@ export class RegisterComponent implements OnInit {
 								visible: true,
 								type: 'success',
 								strong: 'Successfully registered!',
-								message: 'Check e-mail inbox to activate your account'
+								message: 'Check e-mail inbox to activate your account',
+								small: '(You will be redirected to login page in 5 secounds)'
 							});
 							this.submited = false;
+							setTimeout(() => this.router.navigateByUrl('/auth/login'), 5000);
 						},
 						error => {
 							this.alertService.emitChange({
