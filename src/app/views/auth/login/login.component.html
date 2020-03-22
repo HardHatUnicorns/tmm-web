@@ -21,7 +21,7 @@
 			minlength="8"
 			maxlength="32"
 			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-			formControlName="password"
+			formControlName="plainPassword"
 		>
 		<a
 			class="text-muted"
@@ -29,7 +29,10 @@
 		>I don't remember my password</a>
 	</div>
 	<div class="mt-4">
-		<button class="btn btn-primary btn-lg px-5">
+		<button
+			class="btn btn-primary btn-lg px-5"
+			(click)="loginUser()"
+		>
 			Login
 		</button>
 	</div>

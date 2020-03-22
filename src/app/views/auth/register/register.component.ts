@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
 			} else {
 				this.registerForm.controls['plainPasswordConfirm'].setErrors(null);
 			}
-		})
+		});
 	}
 
 	register(): void {
@@ -58,6 +58,7 @@ export class RegisterComponent implements OnInit {
 				this.authService.registerUser(this.registerForm.value)
 					.subscribe(
 						res => {
+							console.log(this.authService.generateAndSaveToken(this.registerForm.value.login, this.registerForm.value.plainPassword));
 							this.alertService.emitChange({
 								visible: true,
 								type: 'success',
