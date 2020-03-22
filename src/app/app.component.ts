@@ -25,8 +25,9 @@ export class AppComponent {
 			// Toggle all tooltips
 			$('[data-toggle="tooltip"]').tooltip('hide');
 			$(function () {
-				$('[data-toggle="tooltip"]').tooltip();
 				sc.loadInputs();
+				setTimeout(() => sc.loadInputs(), 500);
+				$('[data-toggle="tooltip"]').tooltip();
 			});
 
 			// Hidde all alert boxes

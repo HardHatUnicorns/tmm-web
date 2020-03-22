@@ -38,7 +38,12 @@ export class Scripts {
 						input.previousElementSibling.removeAttribute('invalid');
 						input.previousElementSibling.removeAttribute('valid');
 					}
-				})
+				});
+
+				if (input.value) {
+					input.previousElementSibling.setAttribute('has-content', 'true');
+					input.previousElementSibling.removeAttribute('valid');
+				}
 			});
 		}
 	}
