@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../models/User';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
 	providedIn: 'root'
@@ -10,7 +11,7 @@ export class AuthService {
 
 	token: string = window.localStorage.getItem('basic-token') || null;
 
-	apiUrl: string = 'http://localhost:8080/api/';
+	apiUrl: string = environment.apiUrl;
 	httpOptions = {
 		headers: new HttpHeaders({
 			'content-type': 'application/json',
