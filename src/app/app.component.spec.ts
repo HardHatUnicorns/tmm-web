@@ -17,14 +17,16 @@ import { RegisterComponent } from './views/auth/register/register.component';
 import { UserDashboardComponent } from './views/user/user-dashboard/user-dashboard.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { LogoutComponent } from './views/auth/logout/logout.component';
+import { Routes, RouterModule } from '@angular/router';
+import { IsAuthGuard } from './guards/is-auth.guard';
 
 describe('AppComponent', () => {
 
 	beforeEach(async(() => {
 		TestBed.configureTestingModule({
 			imports: [
-				RouterTestingModule,
 				AppRoutingModule,
+				RouterTestingModule,
 				BrowserModule,
 				HttpClientModule,
 				FormsModule,
