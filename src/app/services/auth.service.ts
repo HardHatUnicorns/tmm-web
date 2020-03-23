@@ -32,16 +32,6 @@ export class AuthService {
 	}
 
 	loginUser(user: User): Observable<Response> {
-		this.generateAndSaveToken(user.login, user.plainPassword);
-		return this.http.post<Response>(`${this.apiUrl}user/authentication`, {}, this.authHttpOptions);
-	}
-
-	generateAndSaveToken(username: string, password: string): void {
-		const tk = 'Basic ' + btoa(username + ':' + password);
-		window.localStorage.setItem('basic-token', tk);
-
-		// Refresh token and headers
-		this.token = tk;
 		this.authHttpOptions = {
 			headers: new HttpHeaders({
 				'content-type': 'application/json',
@@ -49,5 +39,33 @@ export class AuthService {
 				'Authorization': this.token
 			})
 		};
+		this.generateAndSaveToken(user.login, user.plainPassword);
+		return this.http.post<Response>(`${this.apiUrl}user/authentication`, {}, this.authHttpOptions);
+	}
+
+	isUserAuthenticated(): boolean {
+		if (this.token) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	generateAndSaveToken(username: string, password: string): void {
+		const tk = 'Basic ' + btoa(username + ':' + password);
+		this.token = tk;
+		window.localStorage.setItem('basic-token', tk);
+
+		this.authHttpOptions = {
+			headers: new HttpHeaders({
+				'content-type': 'application/json',
+				'Access-Control-Allow-Origin': '*',
+				'Authorization': this.token
+			})
+		};
+	}
+
+	deleteToken(): void {
+		window.localStorage.removeItem('basic-token');
 	}
 }

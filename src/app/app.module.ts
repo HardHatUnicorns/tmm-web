@@ -14,6 +14,7 @@ import { LoginComponent } from './views/auth/login/login.component';
 import { RegisterComponent } from './views/auth/register/register.component';
 import { UserDashboardComponent } from './views/user/user-dashboard/user-dashboard.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { LogoutComponent } from './views/auth/logout/logout.component';
 
 @NgModule({
 	declarations: [
@@ -25,7 +26,8 @@ import { AlertComponent } from './components/alert/alert.component';
 		LoginComponent,
 		RegisterComponent,
 		UserDashboardComponent,
-		AlertComponent
+		AlertComponent,
+		LogoutComponent
 	],
 	imports: [
 		BrowserModule,

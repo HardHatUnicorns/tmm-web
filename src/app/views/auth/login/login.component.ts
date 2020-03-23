@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-auth-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
 
 	loginForm: FormGroup;
 
-	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService) { }
+	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService, private router: Router) { }
 
 	ngOnInit(): void {
 		this.loginForm = this.fb.group({
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
 					type: 'success',
 					message: 'Valid credentials'
 				});
+				this.router.navigateByUrl('/user/dashboard');
 			}, error => {
 				this.alertService.emitChange({
 					visible: true,
@@ -36,6 +38,7 @@ export class LoginComponent implements OnInit {
 					message: 'Invalid credentials',
 					small: '(your account may not be activated)'
 				});
+				this.authService.deleteToken();
 			}
 		);
 	}
