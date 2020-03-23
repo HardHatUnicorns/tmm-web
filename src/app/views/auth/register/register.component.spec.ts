@@ -159,35 +159,17 @@ describe('RegisterComponent', () => {
 
 
 		it('should call register method when clicked on submit button', () => {
-
 			spyOn(component, 'register');
-
-			// Force valid form
-			component.registerForm.clearValidators();
-			component.registerForm.clearAsyncValidators();
-			component.registerForm.updateValueAndValidity();
-
-			fixture.detectChanges();
-			let submitButton = fixture.debugElement.nativeElement.querySelector('form button');
+			let submitButton: HTMLElement = fixture.debugElement.nativeElement.querySelector('form button');
 			submitButton.click();
 			expect(component.register).toHaveBeenCalledWith();
-
 		});
 
 		it('should call register method once when clicked on submit button', () => {
-
 			spyOn(component, 'register');
-
-			// Force valid form
-			component.registerForm.clearValidators();
-			component.registerForm.clearAsyncValidators();
-			component.registerForm.updateValueAndValidity();
-
-			fixture.detectChanges();
-			let submitButton = fixture.debugElement.nativeElement.querySelector('form button');
+			let submitButton: HTMLElement = fixture.debugElement.nativeElement.querySelector('form button');
 			submitButton.click();
 			expect(component.register).toHaveBeenCalledTimes(1);
-
 		});
 
 	});
