@@ -66,6 +66,7 @@ export class AuthService {
 	}
 
 	deleteToken(): void {
+		this.token = null;
 		window.localStorage.removeItem('basic-token');
 	}
 }
