@@ -174,4 +174,22 @@ describe('RegisterComponent', () => {
 
 	});
 
+	describe('loading animation', () => {
+
+		it('should be visible while waiting for api response', () => {
+			component.loading = true;
+			fixture.detectChanges();
+			let animationElement: HTMLElement = fixture.debugElement.nativeElement.querySelector('.loading i');
+			expect(animationElement).toBeTruthy();
+		});
+
+		it('should be not visible while not waiting for api response', () => {
+			component.loading = false;
+			fixture.detectChanges();
+			let animationElement: HTMLElement = fixture.debugElement.nativeElement.querySelector('.loading i');
+			expect(animationElement).toBeFalsy();
+		});
+
+	});
+
 });
