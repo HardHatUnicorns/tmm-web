@@ -81,6 +81,13 @@ $form-group-margin-bottom: 1.25rem;
 		}
 	}
 }
+.btn {
+	transition: 0.3s all;
+	&[disabled] {
+		opacity: 0.9 !important;
+		cursor: default;
+	}
+}
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // Boxicons

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
 	registerForm: FormGroup;
-	submited: boolean = false;
+	loading: boolean = false;
 
 	constructor(private fb: FormBuilder, private authService: AuthService, private alertService: AlertService, private el: ElementRef, private router: Router) { }
 
@@ -52,9 +52,9 @@ export class RegisterComponent implements OnInit {
 	}
 
 	register(): void {
-		if (!this.submited) {
+		if (!this.loading) {
 			if (this.registerForm.valid) {
-				this.submited = true;
+				this.loading = true;
 				this.authService.registerUser(this.registerForm.value)
 					.subscribe(
 						res => {
@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
 								message: 'Check e-mail inbox to activate your account',
 								small: '(You will be redirected to login page in 5 secounds)'
 							});
-							this.submited = false;
+							this.loading = false;
 							setTimeout(() => this.router.navigateByUrl('/auth/login'), 5000);
 						},
 						error => {
@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
 								type: 'danger',
 								message: error.error.errors[0].message
 							});
-							this.submited = false;
+							this.loading = false;
 						}
 					);
 			} else {

@@ -6,8 +6,6 @@
 			type="text"
 			class="form-control"
 			required
-			minlength="6"
-			maxlength="32"
 			formControlName="login"
 		>
 	</div>
@@ -18,9 +16,6 @@
 			type="password"
 			class="form-control"
 			required
-			minlength="8"
-			maxlength="32"
-			pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
 			formControlName="plainPassword"
 		>
 		<a
@@ -30,10 +25,20 @@
 	</div>
 	<div class="mt-4">
 		<button
-			class="btn btn-primary btn-lg px-5"
+			class="btn btn-lg px-5 position-relative"
+			[disabled]="loading"
+			[ngClass]="{'btn-primary': !loading, 'btn-dark': loading}"
 			(click)="loginUser()"
 		>
-			Login
+			<span
+				class="loading"
+				*ngIf="loading"
+			>
+				<i class="bx bx-loader-alt bx-spin position-absolute text-primary"></i>
+			</span>
+			<span [ngClass]="{'text-dark': loading}">
+				Login
+			</span>
 		</button>
 	</div>
 	<div class="mt-2">

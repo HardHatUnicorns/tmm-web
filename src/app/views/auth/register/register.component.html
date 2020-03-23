@@ -41,10 +41,20 @@
 	</div>
 	<div class="mt-4">
 		<button
-			class="btn btn-primary btn-lg px-5"
+			class="btn btn-lg px-5 position-relative"
+			[disabled]="loading"
+			[ngClass]="{'btn-primary': !loading, 'btn-dark': loading}"
 			(click)="register()"
 		>
-			Register account
+			<span
+				class="loading"
+				*ngIf="loading"
+			>
+				<i class="bx bx-loader-alt bx-spin position-absolute text-primary"></i>
+			</span>
+			<span [ngClass]="{'text-dark': loading}">
+				Register account
+			</span>
 		</button>
 	</div>
 	<div class="mt-2">

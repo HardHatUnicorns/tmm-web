@@ -43,18 +43,6 @@ describe('LoginComponent', () => {
 				expect(login.valid).toBeFalsy();
 			});
 
-			it('should be invalid with login to short', () => {
-				let login = component.loginForm.controls['login'];
-				login.setValue('short');
-				expect(login.valid).toBeFalsy();
-			});
-
-			it('should be invalid with login to long', () => {
-				let login = component.loginForm.controls['login'];
-				login.setValue('logn123login12logn123login123logn123login123logn123login123logn123login123logn123login123logn123login1233');
-				expect(login.valid).toBeFalsy();
-			});
-
 			it('should be valid with correct login', () => {
 				let login = component.loginForm.controls['login'];
 				login.setValue('correctlogin');
@@ -63,41 +51,11 @@ describe('LoginComponent', () => {
 
 		});
 
-		describe('login input', () => {
+		describe('password input', () => {
 
 			it('should be invalid with default value', () => {
 				let password = component.loginForm.controls['plainPassword'];
 				expect(password.valid).toBeFalsy();
-			});
-
-			it('should be invalid with password to short', () => {
-				let password = component.loginForm.controls['login'];
-				password.setValue('short');
-				expect(password.valid).toBeFalsy();
-			});
-
-			it('should be invalid with password to long', () => {
-				let password = component.loginForm.controls['login'];
-				password.setValue('logn123login12logn123login123logn123login123logn123login123logn123login123logn123login123logn123login1233');
-				expect(password.valid).toBeFalsy();
-			});
-
-			it('should be invalid with password to long', () => {
-				let password = component.loginForm.controls['login'];
-				password.setValue('logn123login12logn123login123logn123login123logn123login123logn123login123logn123login123logn123login1233');
-				expect(password.valid).toBeFalsy();
-			});
-
-			it('should be invalid without number', () => {
-				let plainPassword = component.loginForm.controls['plainPassword'];
-				plainPassword.setValue('ddasyduaSYDYUSUAydsaudyausda&*S&D&*A');
-				expect(plainPassword.valid).toBeFalsy();
-			});
-
-			it('should be invalid without big letter', () => {
-				let plainPassword = component.loginForm.controls['plainPassword'];
-				plainPassword.setValue('kfjefik234jlfk34jfkl34jf0&*(&*(&*(&');
-				expect(plainPassword.valid).toBeFalsy();
 			});
 
 			it('should be valid with correct password', () => {
@@ -124,6 +82,24 @@ describe('LoginComponent', () => {
 			let submitButton: HTMLElement = fixture.debugElement.nativeElement.querySelector('form button');
 			submitButton.click();
 			expect(component.loginUser).toHaveBeenCalled();
+		});
+
+	});
+
+	describe('loading animation', () => {
+
+		it('should be visible while waiting for api response', () => {
+			component.loading = true;
+			fixture.detectChanges();
+			let animationElement: HTMLElement = fixture.debugElement.nativeElement.querySelector('.loading i');
+			expect(animationElement).toBeTruthy();
+		});
+
+		it('should be not visible while not waiting for api response', () => {
+			component.loading = false;
+			fixture.detectChanges();
+			let animationElement: HTMLElement = fixture.debugElement.nativeElement.querySelector('.loading i');
+			expect(animationElement).toBeFalsy();
 		});
 
 	});
