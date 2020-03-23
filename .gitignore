@@ -1,9 +1,11 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+package-lock.json
 
 # compiled output
 /dist
 /tmp
 /out-tsc
+/src/main/webapp/resources/
 # Only exists if Bazel was run
 /bazel-out
 
@@ -44,3 +46,19 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+### Maven template
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# https://github.com/takari/maven-wrapper#usage-without-binary-jar
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+out/
