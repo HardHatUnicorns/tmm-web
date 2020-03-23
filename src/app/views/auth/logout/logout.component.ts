@@ -13,7 +13,9 @@ export class LogoutComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.authService.deleteToken();
-		this.router.navigateByUrl('/auth/login');
+		setTimeout(() => {
+			this.router.navigateByUrl('/auth/login');
+		}, 10);
 	}
 
 }
