@@ -24,6 +24,7 @@
 			backdrop-filter: blur(20px) brightness(15%);
 			margin-left: 0rem;
 			padding: 3rem 1.5rem;
+			margin-right: 1.5rem;
 			width: 100%;
 		}
 		@media screen and (max-width: 576px) {
@@ -61,9 +62,19 @@
 		position: relative;
 		display: flex;
 		min-height: 100vh;
+		@media screen and (max-width: 992px) {
+			position: fixed;
+			top: 0;
+			right: 0;
+			min-height: 100vh;
+		}
 		&.primary {
 			width: 0.5rem;
 			background-color: #d65a31;
+			z-index: 50000;
+			@media screen and (max-width: 992px) {
+				right: 1rem;
+			}
 		}
 		&.secondary {
 			width: 1rem;
